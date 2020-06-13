@@ -1,0 +1,678 @@
+<html><head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169324827-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169324827-1');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Learning AP Calculus BC in 5 days </title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="89f2dacc-eeb7-4e20-be4e-042fb22291a0" class="page sans"><header><img class="page-cover-image" src="Learning%20AP%20Calculus%20BC%20in%205%20days%2089f2dacceeb74e20be4e042fb22291a0/banner.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📐</span></div><h1 class="page-title">Learning AP Calculus BC in 5 days </h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="8de3ff7a-d339-47d9-a1e5-a1144cc18862"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">June 12th, 2020 Sigil Wen</div></figure><p id="75ddfa88-7ea6-408f-bf4b-5df25693903a" class=""><strong>Note: I am not naturally gifted or super smart.</strong></p><blockquote id="f57ac4aa-c2e3-4a62-bf14-70a078e38b35" class="">I don&#x27;t want you to attribute innate, uncontrollable factors as the reason for any of my accomplishments. You can do everything I do. But thinking the reason I could do this is that I am &quot;born with it&quot; is an excuse for you to not push yourself and grow. It all comes down to <strong>dedicated effort</strong> and the <strong>right approach</strong>. I hope I make this clear throughout this post. </blockquote><p id="becc7922-6c92-424b-8421-1a1f75b3578a" class="">
+</p><p id="79166f8b-42b8-463f-8b3a-9eadb83403cf" class="">Fun fact: <strong>Input does not always equal to Output.</strong></p><p id="5dea83e9-0386-45e0-b6ab-d4ca79857ec5" class="">
+</p><p id="90106103-71cb-48c4-88e3-ea16c8a9d712" class="">You can spend the same amount of time and effort as someone else but achieve drastically different results. Ever see that kid who never studies but aces all the tests 😏? They likely have found a better approach to learning that allows them to achieve greater results with less effort. This is a good example of the saying &quot;Work smart, not hard&quot;. </p><p id="5cd36fa3-d2a1-446d-a5da-6ed944be68c0" class="">
+</p><p id="cf5af8d8-3114-439b-b688-7befaf6311dd" class="">But what if you <strong>worked both hard</strong> and <strong>smart</strong>? Well, you develop a superpower to achieve your greatest ambitions. This could be climbing V10 boulders, winning a marathon, or in my case, learning AP Calculus BC in 5 days. This is the effort and approach I took:</p><h2 id="2f062162-7d40-4d00-809b-a7063439b0aa" class=""><strong>Setting Up a Distraction-Free Environment (Day 0)</strong></h2><figure id="307aa6ca-b6e4-46d7-94e3-014f24227a48" class="image"><a href="Learning%20AP%20Calculus%20BC%20in%205%20days%2089f2dacceeb74e20be4e042fb22291a0/4.png"><img style="width:1366px" src="Learning%20AP%20Calculus%20BC%20in%205%20days%2089f2dacceeb74e20be4e042fb22291a0/4.png"/></a></figure><p id="ecf7088f-402d-4ad4-aa0b-c8d14cf48511" class="">To do anything well, especially cramming a years worth of calculus in 5 days, you need to <strong>focus</strong>. </p><p id="b9dcc2b6-4c5e-4c18-a4ad-50729d00d29d" class="">
+</p><p id="0163b0fd-a166-4bfb-9f77-f4534c89c52f" class="">I however am <strong>really</strong> bad at focusing. It is something I combated on a daily basis since I was young. But it doesn&#x27;t mean I can&#x27;t ever focus. </p><p id="60028088-9bbe-4ca6-8895-24dee263e893" class="">
+</p><p id="5105e3a7-a864-4b38-8eef-2b065f0bc2d5" class="">Knowing that I get distracted easily by social media, youtube, emails, or calls from my friends, I <strong>augmented my environment such that no distractions exist.</strong> I locked up my phone in a drawer, <a href="https://chrome.google.com/webstore/detail/remove-youtube-recommende/khncfooichmfjbepaaaebmommgaepoid">disabled youtube homepage + suggestions</a>, <a href="https://www.inmotion.app/">blocked irrelevant websites</a>, and finished all other tasks that would take away my focus. </p><h2 id="192b685e-bd95-4012-bdc5-c7d3e0d394ac" class="">Building a Top-Performing Environment<strong> (Day 0)</strong></h2><p id="183f0870-59b7-438b-b1e9-c3615b447c1e" class="">The most important thing about doing anything that requires a lot of time and dedication is to be <strong>realistic</strong>. Each day you need to <strong>eat</strong>, <strong>sleep</strong>, <strong>hydrate</strong>, take breaks, <strong>exercise</strong>, maintain good hygiene, <del>post on Instagram,</del> etc. </p><p id="10d65619-5124-45af-b897-d899d084ea48" class="">
+</p><p id="a538ba3a-60d7-4bf1-8cbd-600c0ddd0185" class=""><strong>You want to be in top performance. Sacrificing any of these factors adds inefficiencies towards your day. </strong></p><p id="5699026e-935c-4bbb-ba75-7738c6f92cdf" class="">
+</p><p id="eb984aa5-9a11-4854-8d0e-41f3e00a11a5" class="">Say you don&#x27;t sleep or eat well. You might operate 30% less efficiently which normally is okay. But If you are focusing on learning for 10 hours, 30% means 3 hours of unnecessary effort. Simple to understand right? It makes sense then to invest in your performance if you want to become an <strong>Olympic level learner</strong>.</p><p id="ff134870-f52c-4db6-8a1e-c91944d498a3" class="">
+</p><p id="94ecf3c8-4d86-4827-9e31-655ab7bccac7" class="">Prior to starting, I created a routine that involved <strong>sleeping by 11 pm and waking up at 8 am</strong>, giving me roughly 9 hours of sleep. I researched into <strong>increasing sleep quality</strong> and found that sleeping directly after the use of electronic screens hinders the quality. So I made sure to get off electronics by <strong>10 pm </strong>and use the remaining 1 hour of time to go through my notes or read a book ( <a href="https://www.youtube.com/watch?v=Jgv7qhDLPhg">Sapiens</a> is a great bedtime read ). 
+
+A while back, I invested in a bottle of <a href="https://slashopp.mynuskin.com/content/nuskin/en_CA/products/product.02003516.mysite.html">Night Time Formula</a> that really helps you fall asleep and get great sleep quality. It uses a good dosage of <strong>melatonin</strong>, a hormone that regulates your body&#x27;s sleep-wake cycle. Other alternatives such as <a href="https://www.youtube.com/watch?v=Jgv7qhDLPhg">melatonin pills</a> work well but I find that they contain way too much melatonin. Be aware that excess melatonin usage over long periods of time can create reliance and ironically make it harder to sleep. Use it only when you need to. </p><p id="5109e125-13c7-441c-bf87-ef71df3cbb59" class="">
+</p><p id="4d239bdf-b017-4edd-b24d-1e0b09ccfc24" class="">To maintain good hydration, I made sure I always had a glass of water at arms reach so that the act of drinking is super easy. I also brought my Brita filter into my room so that I could refill easily in my washroom sink, allowing me to stay in my room. This is a technique you can employ for developing habits. <strong>By making it easy to perform a task, you naturally do it much more.</strong> </p><p id="881c1130-50b4-4c23-8ab6-5d4e49178d8b" class="">
+</p><p id="3ad478a7-efaa-4b22-8ad7-7f5bdae560bc" class="">I planned to eat well, take fish oil, exercise, and be a clean boy. </p><h2 id="0573d911-4882-435d-a74b-81194a284a6d" class="">Learn how to learn (Day 1 Morning)</h2><p id="7f7d4147-058e-4882-8a8a-25fd8bba7225" class="">Before embarking on any large task, you need to keep in mind what the best way to do it is. This would mean researching <strong>how others have done it before</strong>, <strong>looking into learning techniques</strong>, and <strong>learning how to learn</strong>. </p><p id="0fb4d5ff-bbdf-4a69-9a33-17775bd35e62" class="">
+</p><p id="07541c9e-efa4-4816-8784-4706413d7d80" class="">I found a really dope guy named <strong>Scott H Young</strong>, author of <a href="https://www.scotthyoung.com/blog/ultralearning/">Ultralearning</a> and creator of the <a href="https://www.scotthyoung.com/blog/myprojects/mit-challenge-2/">MIT Challenge</a>, where you go through a 4 year MIT Computer Science Curriculum in 12 months. Apart of the challenge, Scott <strong>finished</strong> <a href="https://www.youtube.com/watch?v=vmM75fYviLY">Single Variable Calculus in 5 days</a> which showed me that it could be done with the right approach. </p><p id="2a0f2d2d-75a4-454a-b926-489236d57903" class="">
+</p><p id="fbd8956a-8f61-4f1c-9547-676eb3d48a1b" class=""><strong>Josh Kaufman,</strong> the author of <a href="https://www.youtube.com/watch?v=5MgBikgcWnY&amp;feature=youtu.be">The First 20 Hours</a> explains really well in his <a href="https://www.youtube.com/watch?v=5MgBikgcWnY&amp;feature=youtu.be">TED Talk</a> that <strong>you can learn anything in 20 hours of practice</strong>. I had way more than 20 hours.</p><p id="dc26f4e1-d9a2-49c4-91bf-8a00240682e4" class="">
+</p><p id="958307dd-d8a6-4d2e-82d6-21185d3db3ac" class="">I learned that I want to be using study resources that <strong>best represented</strong> what I would be tested on. I ordered an <strong><a href="https://www.amazon.ca/gp/product/1438008597/ref=as_li_tl?ie=UTF8&amp;camp=15121&amp;creative=330641&amp;creativeASIN=1438008597&amp;linkCode=as2&amp;tag=sigilwen-20&amp;linkId=242d17655d0b154e625cb726b5da78fe">AP Calculus BC Prep book</a></strong> a while back that I never touched which was perfect to use as it covered everything in Calculus BC and was <strong>harder than the exam.</strong></p><p id="1fae3134-4753-4ab3-aaa6-ae2c9f52027c" class="">
+</p><p id="6aab00da-f906-46ff-a6b9-4ed23bf9d475" class="">But across all the resources on learning, I noticed that the most important aspect is <strong>purposeful practice- deliberate practice if possible (requires a teacher). </strong><a href="https://www.nateliason.com/blog/deliberate-practice">Nat Eliason&#x27;s post</a> on explains it very well. Essentially, it is a method of practice that requires pushing your comfort zone, honing in on your weaknesses, and rapid growth. </p><p id="be5793f6-cfeb-4038-84e7-cfcc54481db6" class="">
+</p><p id="763d4ee6-97d0-4388-8a32-6b767f1a3884" class=""><strong>Implementing deliberate practicing will increase your output (of results) for every input (of time).</strong></p><h2 id="013dcdbe-4484-4d7e-929a-ff153fc3357e" class=""><strong>Building Intuition (Day 1 Afternoon)</strong></h2><figure id="95476498-7e93-4a3e-b707-22cd6dc74b3b" class="image"><a href="Learning%20AP%20Calculus%20BC%20in%205%20days%2089f2dacceeb74e20be4e042fb22291a0/2.png"><img style="width:1366px" src="Learning%20AP%20Calculus%20BC%20in%205%20days%2089f2dacceeb74e20be4e042fb22291a0/2.png"/></a></figure><p id="3a227a27-146a-414e-a9ca-8746ab3413c7" class="">I like to think of a high intuition as Super Saiyan for your learning. Building a strong intuition prior to going hard on learning will act as an insane multiplier to your growth. </p><p id="d8b2cab7-71b2-4d24-9373-26c21c2aaa78" class="">
+</p><p id="be086887-8f85-42b6-b90f-77daaf8f22a1" class="">Intuition will allow you to <strong>derive concepts without memorizing everything </strong>and <strong>promotes an actual understanding of the topic.</strong></p><p id="14443fb3-c1b4-434b-afb0-94c0c065846b" class="">
+</p><p id="d34d2bb3-1abb-4452-a601-f0f9eaa81a03" class="">Usually, good resources that build intuition use simple to understand <strong>analogies</strong> and don&#x27;t go into technical questions- we will save that for later. </p><p id="4adcc8d5-a323-471e-8537-c28675dbfbd9" class="">
+</p><p id="6f2db6a7-32d1-44b9-8a4c-70f506fec0ee" class="">Youtube is an awesome place to find great resources for building intuition. After some searching and watching through videos, I found this gem:</p><p id="76c73d0e-4f14-489f-a41b-97dd1580a18a" class="">
+</p><figure id="6bb9dc77-65c2-43eb-95e8-918b32775dd7"><div class="source"><a href="https://www.youtube.com/watch?v=WUvTyaaNkzM">https://www.youtube.com/watch?v=WUvTyaaNkzM</a></div></figure><p id="8ded0771-fa47-4c55-9d84-1d370fed9e50" class="">
+</p><p id="50c75521-3cc8-49cd-a852-a294fa79ce8c" class="">The Essence of Calculus by 3Blue1Brown is a <a href="https://www.youtube.com/watch?v=WUvTyaaNkzM&amp;list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">12 part series</a> that covered all of the topics that I would be learning over the next few days. </p><p id="321ebfe5-89b3-4045-9fb5-410ae41c11b2" class="">
+</p><p id="66ba9627-71f8-4041-a04d-d6ab18fb1284" class="">It takes about 4 hours (20ish minutes x12) of <strong>focus </strong>to fully watch and take notes on the series. And is by far the best resource for building calculus intuition.</p><p id="4023229e-0d98-42ca-aa7a-426604dcacb5" class="">
+</p><p id="74c3e1da-015a-4402-88fc-a03e4fb50309" class="">If you don&#x27;t find videos effective, I highly recommend reading the book equivalent of 3Blue1Brown&#x27;s The Essence of Calculus: <a href="https://www.amazon.ca/gp/product/1119293499/ref=as_li_tl?ie=UTF8&amp;camp=15121&amp;creative=330641&amp;creativeASIN=1119293499&amp;linkCode=as2&amp;tag=sigilwen-20&amp;linkId=aa5405f3288eed34b011cf3c3837da1e">Calculus for dummies</a>. The <strong>&quot;For Dummies&quot;</strong> series is amazing for building intuition. It&#x27;s a really big series so you can find almost any topic you want to learn. I previously used <a href="https://www.amazon.ca/gp/product/1119293464/ref=as_li_tl?ie=UTF8&amp;camp=15121&amp;creative=330641&amp;creativeASIN=1119293464&amp;linkCode=as2&amp;tag=sigilwen-20&amp;linkId=a0436c529fa2ada5347966671f99709a">Chemistry for dummies</a> that gave me a solid foundation to blast through AP Chemistry and Olympiad Chemistry material in grade 9. </p><p id="b3db5210-81e4-4186-bd9b-c08d40f7fd3f" class="">
+</p><p id="0e09e185-780a-4efd-974b-fe2a5a6aed50" class=""><strong>Investing time into intuition is the first step to accelerating learning.</strong> This is where you try and <strong>understand how the underlying principles work </strong>before memorizing facts, formulas, and theorems.</p><h2 id="1f0eb865-b9d5-42c8-885e-de80df995095" class="">Purposeful Notetaking (Day 2 and 3)</h2><p id="7de99c3c-a68c-40b5-be78-4f39035ae595" class="">After an afternoon of building intuition, I set out on tackling the content. I used <a href="https://www.amazon.ca/gp/product/1438008597/ref=as_li_tl?ie=UTF8&amp;camp=15121&amp;creative=330641&amp;creativeASIN=1438008597&amp;linkCode=as2&amp;tag=sigilwen-20&amp;linkId=242d17655d0b154e625cb726b5da78fe">Barron&#x27;s AP Calculus BC Textbook</a> (the cover is relatable) as my learning resource because it best <strong>represented the curriculum</strong> and is harder than the actual exam.</p><p id="21e13794-dbd1-4bd5-88cf-fe8d5b692ea4" class="">
+</p><p id="805aea3c-1ef8-42f4-b7fa-191fa5ee792d" class="">For Day 2, I had to take rough notes on everything in the <strong>600+ page textbook</strong> so that I have a general idea of all the concepts I will need to learn. In order to do so, I needed a plan.</p><p id="08fce001-8712-4ea0-994d-a34666f8fa2f" class="">
+</p><p id="c8bbde63-5681-4794-9a4f-ac2e85b7a6a8" class="">Going through the table of contents and glancing at each chapter, I realized that the majority of the textbook was questions and answers which limited the amount of content to about <strong>200 pages of reading</strong>. Awesome, this makes it way less intimidating to tackle.</p><p id="0ca735fb-919a-4b57-ac80-0331d4f2c627" class="">
+</p><p id="4e574e5f-4ec7-465f-9df7-cd676397ee56" class="">For the 10 Chapters within the textbook, I briefly went through all of the pages and gave an estimation for the amount of time I needed to read, comprehend, and take notes on for each chapter. Here were my estimated timings:</p><ul id="158b1e56-d0b2-41f4-ac57-b0e8d195fb57" class="bulleted-list"><li>Notes on functions (15 minutes)</li></ul><ul id="1450e754-5a73-4bf3-91f4-0870cf4bd108" class="bulleted-list"><li>Notes on limits (30 minutes) </li></ul><ul id="390d8f8b-4a22-4d26-83fb-4bccad5c1c84" class="bulleted-list"><li>Notes on Differentiation (30 minutes)</li></ul><ul id="a5d8f244-2d5a-478e-9fb8-7d67abc23835" class="bulleted-list"><li>Applications of differnetial (1h) </li></ul><ul id="cf6762da-9b2b-49ea-b2f7-e9f8a093e0c2" class="bulleted-list"><li>Anti Differentiation (30 mins) </li></ul><ul id="95b867fa-3f52-4f7d-a87a-6712d984c562" class="bulleted-list"><li>Definite Integrals (1h) </li></ul><ul id="09ec2b76-d71b-464d-a0ce-44ccd5bf5cfe" class="bulleted-list"><li>Differential Equations (1h)</li></ul><ul id="91f2d8d5-27d3-435f-ae42-bd4b7cd3103e" class="bulleted-list"><li>Sequence and series (1h)</li></ul><ul id="a7b62cb8-265a-4948-bb9a-f080dac116e7" class="bulleted-list"><li>Integration Geometry (1h)</li></ul><ul id="67080b95-db06-45cc-908b-702149655487" class="bulleted-list"><li>Integration application (1h)</li></ul><p id="9f5466c1-91b4-41d4-a5b0-83049c539ee7" class="">
+</p><p id="50c3de60-dcaa-40d9-9b8a-ede9d32ad42b" class="">Having a rough plan, I jumped right ahead and started taking notes. </p><p id="dbcce5de-d7ae-4d24-9c48-40c8c5f1e94c" class="">
+</p><p id="bedc8b0f-226a-4320-8f5d-1091efcdfa95" class="">But I did not take notes on everything. You might find that a lot of your peers take notes on all the information available in the textbook or lecture which is super inefficient for actual learning. </p><p id="b968500d-1e9e-4ca2-b2e9-d1c20d143fdb" class="">
+</p><p id="2b2e9258-768c-4178-957d-849abf4d456a" class=""><strong>A better way is to take notes only on what you don&#x27;t know well. </strong>If I am comfortable with a topic,  then I won&#x27;t take notes on it, allowing me to focus my efforts on my weaknesses. This is a technique that employs<strong> purposeful practice.</strong> Purposeful practice prioritizes what you are weak at, creating constant growth<strong>. </strong></p><p id="059a236b-451d-4749-9adb-7c1053e2c30c" class="">
+</p><p id="21a2189e-70b6-410c-a307-e55e38d01e3a" class="">Let&#x27;s call this notetaking technique <strong>purposeful notetaking. </strong>The point of it isn&#x27;t actually to create reviewable notes like what you normally do. Instead, you repeat the process over and over again until you are strong at nearly all of the topics. This means that in the beginning, you will write a lot as you are unfamiliar with most of the content. But as you repeat this cycle you write fewer notes way quicker because you build familiarity with the topics that you suck at.</p><p id="03677ef4-f1b2-4722-8603-d0d5d2567661" class="">
+</p><p id="4b324f15-d1c9-47f1-b2da-41b04962c34d" class="">The first time I went through a cycle of purposeful notetaking for the AP Calculus textbook took me about 8 hours. Here are the timings that I recorded:</p><ul id="5ef93cc4-643c-403b-bc0b-fa6d8f4ab9a9" class="bulleted-list"><li>Notes on functions 10:00-10:03 </li></ul><ul id="d9091c72-1d74-4e8e-b23a-e599500a909c" class="bulleted-list"><li>Notes on limits 10:03- 10:34</li></ul><ul id="c314c667-241f-4a3e-a110-c8555de9dfbe" class="bulleted-list"><li>Notes on Differentiation 10:34-10:48</li></ul><ul id="afd07e31-89c4-4867-b626-23f59a0f8871" class="bulleted-list"><li>Applications of differnetial 10:48- 11:03  11:45- 12:26</li></ul><ul id="1206e124-9fa6-4fa4-b2d1-2d2c700b9347" class="bulleted-list"><li>Anti Differentiation  12:30-1:02</li></ul><ul id="7d7fe70c-551e-403c-bc21-243a644c993a" class="bulleted-list"><li>Definite Integrals  1:02- 1:30 2:20- 2:33</li></ul><ul id="13258e94-88be-4423-b307-9fe018bbcfa6" class="bulleted-list"><li>Took a break here lol</li></ul><ul id="4d27bb8b-449f-4b31-8adb-40122d268517" class="bulleted-list"><li>Differential Equations 4:00-5:23</li></ul><ul id="02faacbb-0e8e-4ace-b0ea-218a3c46997d" class="bulleted-list"><li>Sequence and series 5:23 - 5:56</li></ul><ul id="44402905-f962-4a62-9555-59aee692f3bb" class="bulleted-list"><li>Integration Geometry 6:07 - 7:12</li></ul><ul id="bbb7e970-c2fd-44f3-b9fe-0a3d2dd079fa" class="bulleted-list"><li>Integration Applications  7:12 - 7:42</li></ul><p id="a75cb378-2f1f-4dd1-b3ff-a30482c308f8" class="">
+</p><p id="aef0b17a-9516-4358-8d0f-136042265b35" class="">Notice that for the earlier topics, I spent less time because I have prior knowledge and familiarity- especially the functions unit. <strong>FYI, I took the course of an advanced function (the prerequisite) and learned some concepts in calculus informally before this.</strong></p><p id="e32853f1-2b09-4d8a-8e6d-42abfb80524c" class="">
+</p><p id="54067bfa-5971-48c8-86d8-dadd9dbeff6c" class="">By this point, I have taken notes on all of the concepts that I needed to learn but have not fully internalized/understood all of the concepts.</p><p id="69cd4d0a-28b1-44af-a036-3e487e780770" class="">
+</p><p id="e0e7bf4e-ad63-469c-89a7-3882cd2fb1ae" class="">The second cycle of purposeful notetaking took less than 2 hours, significantly faster than the first cycle of 8 fricken hours. I continued cycles of purposeful notetaking, slowly trying out the provided questions in the textbook and applying the formulas and theorems on the nearby pages. </p><figure id="e7511460-b4c9-415e-962c-275469515ef4" class="image"><a href="Learning%20AP%20Calculus%20BC%20in%205%20days%2089f2dacceeb74e20be4e042fb22291a0/5.png"><img style="width:1366px" src="Learning%20AP%20Calculus%20BC%20in%205%20days%2089f2dacceeb74e20be4e042fb22291a0/5.png"/></a></figure><p id="24cd6bb4-f45b-47ef-818f-e6204c3857f6" class="">Building the intuition really started to help here as I began relating the analogies and diagrams 3blue1brown used to the different properties and equations that I came across. If you learn through intuition and put in a few hours of effort. <strong>Calculus doesn&#x27;t seem that hard. </strong>It actually makes a lot of sense.<strong>  </strong></p><h2 id="3275d8b9-0cfd-41aa-bec3-157db525a5ca" class="">Purposeful Practice (Day 4)</h2><p id="575f48ee-ae36-4d11-9922-278023219c6e" class="">By now, I became familiar with all of the concepts covered in Calculus. Now it came down to actually being able to apply the concepts. </p><p id="3bdc3ce3-1b90-48f6-bbc8-8ad28a34ac50" class="">
+</p><p id="1a21280d-eb86-49a8-b1a1-8be4319bc802" class="">Similar to notetaking, when practicing <strong>you don&#x27;t want to be inefficient</strong>. There is no need to do every question given to you in order to learn the concept. </p><p id="943a7e40-c8a0-4654-ab7a-ee7ee16e2d9d" class="">
+</p><p id="92a5c8b0-5295-4b01-9f34-6cf92ef11360" class="">In each unit, I was bombarded with probably 200+ questions. I didn&#x27;t have time to do all of this, let alone 10 chapters worth of questions. Instead, I picked out questions that <strong>best represent the general question demographic</strong> and did those, <strong>saving me more than a day worth of time.</strong></p><p id="a79da0cc-8546-4fb8-b3eb-7b836489bb2c" class="">
+</p><p id="90399859-9c05-4fa5-890f-d1db8f478de5" class="">You may notice that there are different types of applications. Through analyzing the calculus questions, I realized that there are usually less than 8 question types, each with their own unique solution framework to use. To be efficient, I chose a few questions that best represented each type of question. </p><p id="48439990-ecb1-4b01-8d2c-41ae126f1ba7" class="">
+</p><p id="c0c03fad-5ee1-4d98-9236-9c28a90a573b" class="">For each type, you build a <strong>problem-solving framework </strong>that you can apply to any question of that type. Think about addition, subtraction, multiplication, the quadratic formula. It&#x27;s all about recognizing the right question type and using the right solution framework.</p><p id="48484cb1-e023-47fd-b0bf-41d65b458505" class="">
+</p><p id="94a17752-205e-4e13-bee5-021778d88fb5" class="">As you go through the questions, you build an internal understanding of what question types you ace, and what question types you suck at. Afterward, you go back and <strong>focus on practicing the questions you suck at. Simple right? </strong>If you are stuck on a question type, a simple google search should give you access to thousands of videos explaining a framework that works (haha get it).</p><p id="deede55c-a8ca-4474-82ef-2490f5c7e30b" class="">
+</p><p id="b565ed2a-ef90-49fd-af19-f3b4f51b771f" class="">Doesn&#x27;t this all sound familiar? From purposeful notetaking to purposeful practice, it takes an approach that focuses on what you are weak at. You barely spend time on what you are comfortable with 😟. <strong>All the best practices for learning involve getting way out of your comfort zone and growing a whole bunch.</strong></p><h2 id="ec49f4e7-5dbd-458c-9777-a611a6b7b512" class="">Testing and Feedback (Day 5) </h2><p id="aa676c43-1f2e-4c23-93d4-b723f108af1e" class="">By now, I have tasted all the different question types and learned all of the concepts.</p><p id="78fe2da7-75ed-4758-ae38-d8ebdaf66b9f" class="">
+</p><p id="d3806750-2d64-4bab-9ba8-07ea52c0e3f8" class="">To see if I truly learned and understood AP Calculus BC, I needed to take an assessment and <strong>gain feedback on how I could improve</strong>. </p><p id="3eb04e1e-1e7a-446f-8e3b-f4d6267794dd" class="">
+</p><p id="286ef28d-8726-489f-ae5e-a833cb251ff3" class="">I printed out past AP Calculus Exams, put myself in the testing environment, and saw how I scored using the marking criteria. After each exam, I would try and identify how I could improve and focus on it before trying once more. </p><p id="220e1bb6-5e5a-4d33-86ff-b367b6577e62" class="">
+</p><p id="245607d7-1187-4fb9-a2ba-fcc58ad6eb88" class="">Since I did not have a teacher to give me feedback, I went on YouTube and watched how others completed the exam, looking at their decision-making processes and frameworks. </p><p id="1bcd97a1-fa50-440e-bb60-349dedd254c6" class="">
+</p><p id="8f85a973-5c0c-44b3-aa42-7dd622f7e35f" class="">With a bit more review, purposeful practice, and testing, I was fully prepared to ace the AP Calculus Exam and show off just how much I have learned.</p><h2 id="509bd784-1523-43c5-9a4a-83841459b5b1" class="">Key Takeaways</h2><p id="b2d79d2c-9c27-40a7-8339-6eedd628cc0e" class="">While this post covers my own process for Ultralearning AP Calculus BC in 5 days, <strong>the same principles can be applied to learning anything else. </strong></p><ul id="b2cdcb44-b6d4-4c73-9f85-2b6d19e9748e" class="bulleted-list"><li><strong>Use purposeful practice techniques like purposeful notetaking to enhance your learning growth</strong></li></ul><ul id="4cac712d-2b54-4e94-b903-6bd180763580" class="bulleted-list"><li><strong>Input does not always equal to Output</strong></li></ul><ul id="4c545ca3-7f2a-4ee5-9db3-099e50846e0f" class="bulleted-list"><li><strong>Superpower your growth with the right approach and effort</strong></li></ul><ul id="050546bd-cf91-4861-ad20-9134078e99eb" class="bulleted-list"><li><strong>To work well, you need to be well. That means investing in your sleep, nutritional intake, hydration, exercise, etc. </strong></li></ul><ul id="c7f0fb07-219c-4c48-b4cf-adaa8a6424c8" class="bulleted-list"><li><strong>By making it easy to perform a task, you naturally do it much more. </strong></li></ul><ul id="38193c8b-bee5-4430-8244-8fdc7ca1fc56" class="bulleted-list"><li><strong>Build a focus environment by eliminating distractions entirely</strong></li></ul><h2 id="72e5ec4e-79d5-430d-b5c7-88818faebac7" class="">If you liked what I wrote...</h2><ul id="dc5cff45-82cc-4bb1-9195-7a046e1b9c60" class="bulleted-list"><li>Contact me any questions, comments or takeaways at <a href="mailto:sigil.w3n@gmail.com">sigil.w3n@gmail.com</a>  👀</li></ul><ul id="ed16c03b-2089-4426-afc1-1aab0acad3b3" class="bulleted-list"><li>Subscribe to my <a href="https://www.youtube.com/channel/UC68dN9l5fEaefElL728K6bA">YouTube Channel</a> for valuable content like this 🔥</li></ul><ul id="04dcd51b-0198-4dad-b5b3-9abddf3f032e" class="bulleted-list"><li>Join my <a href="https://www.subscribepage.com/a6j4h3">monthly newsletter</a> to stay updated with my <a href="http://sigilwen.ca">journey</a> and new content 🚀</li></ul><ul id="a385ff16-47ce-425d-84a2-25f330a8a700" class="bulleted-list"><li>Say hi to me on <a href="https://twitter.com/WenSigil">twitter</a>, <a href="https://www.instagram.com/sigil.wen/">instagram</a>, or on <a href="http://sigilwen.ca">sigilwen.ca</a> 👋</li></ul><ul id="7ebb4470-1f8f-41f7-88c3-88a8a1e300e7" class="bulleted-list"><li>Visit my blog <a href="http://oneskillaweek.com">oneskillaweek.com</a> 🤯</li></ul><p id="9f729a10-faee-410d-9dc6-9f90861837c9" class=""><strong>Thank You! 😁</strong></p><figure id="42aaf3e6-127d-4b6c-b401-6939c5fc2131" class="image"><a href="Learning%20AP%20Calculus%20BC%20in%205%20days%2089f2dacceeb74e20be4e042fb22291a0/3.png"><img style="width:1366px" src="Learning%20AP%20Calculus%20BC%20in%205%20days%2089f2dacceeb74e20be4e042fb22291a0/3.png"/></a></figure></div></article></body></html>
