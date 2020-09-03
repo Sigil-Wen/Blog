@@ -1,0 +1,635 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Learn to code and deploy a website in an afternoon</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="68c75161-6399-45a1-87b5-a8cce0f80aff" class="page sans"><header><a href="index.html"><img class="page-cover-image" src="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/banner.png" style="object-position:center 50%"/></a><div class="page-header-icon page-header-icon-with-cover"><span class="icon">👨‍💻</span></div><h1 class="page-title">Learn to code and deploy a website in an afternoon</h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c470ce36-c150-4a6a-b99e-9b6a732d1ab3"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">August 18th, 2020</div></figure><blockquote id="dcf8ca41-49f1-4e8c-a7d1-dc304059733b" class=""><strong>Note:</strong> This is super valuable for anyone interested in building a startup, starting side-hustles, or joining clubs/non-profit organizations. This will cover a road to code legit websites as well as hosting + domains</blockquote><p id="ef338e8d-c8a7-4723-a595-0123b353a887" class=""><strong>Building websites aren&#x27;t hard.</strong> In fact, I bet you can learn to set one up in an afternoon. </p><figure id="0887b2f6-bd7e-47ca-93d5-557c3f27485c" class="image"><a href="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/1.png"><img style="width:1024px" src="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/1.png"/></a></figure><p id="b9133c84-c0ff-4c72-83da-e47c081fb4ec" class="">The hard part about learning how to build websites (or anything technical) is finding the right pathway/approach to learning. </p><p id="bbac83ce-2f9a-4b9a-b646-e92b8b36fcd2" class="">
+Luckily I&#x27;ve been building websites as a side hustle for years now and endured the beginner pains for you, figuring out a great pathway for any beginner to get their website gears turning.</p><h2 id="ccca65b6-bae5-40f9-b8ae-fd7bf7c6dc89" class="">Get a grasp of HTML (How To Meet Ladies... jk... unless?😳)</h2><p id="bf8bcde1-0176-48c4-aed4-31883cede319" class=""><strong>The basic language of all websites is HTML.</strong> It&#x27;s ridiculously simple to understand and that&#x27;s the first step to building your own website. </p><p id="91308b36-8b9a-433c-b0ca-b777632c5ba9" class="">You can think of HTML as a framework, skeleton, or blueprint of a website. It sets the structure of the website but by itself isn&#x27;t pretty.</p><figure id="ac2ad55a-22e5-4878-9dcb-36e3ce312d37" class="image"><a href="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/6.png"><img style="width:1366px" src="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/6.png"/></a></figure><p id="2353bd44-bca8-4e77-a2de-494d661bc022" class=""><strong>That&#x27;s where CSS comes in. </strong></p><p id="e4ceb4a9-742e-4d08-ae72-5258d3955e30" class="">
+</p><p id="0e807c50-5e7b-42a7-a7d2-8ff2a726ff70" class="">Similar to HTML, it is really easy to understand but serves a different purpose. CSS stylizes the website, adding colors, borders, and all sorts of pretty aspects. </p><p id="d3ac0e02-9a5f-4ff7-ba3b-360e1cc50e97" class="">
+I like to think of websites as people where HTML is the skeleton- the structure of the website. 
+Going with this analogy, CSS would be the skin, hair, and eye colour, body type, etc. </p><p id="b838bfb5-bafe-41b9-8224-809d8878a6a2" class="">
+</p><p id="38500063-8974-4c51-8231-34628e9a9127" class="">And if you (or your website) are trying to look spicy, you can add extra to your CSS or additional jewellery, tattoos, clothing, etc.</p><figure id="389cbeb5-a8fe-40f5-a2bc-1a93979dadaa" class="image"><a href="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/4.png"><img style="width:1366px" src="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/4.png"/></a></figure><p id="26c29d1a-6eae-4269-9d73-09e3e235efd1" class="">This &gt; 2-hour lecture by <a href="https://cs50.harvard.edu/web/">Harvard CS50W</a> (highly recommend watching) is the best resource I came across for understanding the basics of HTML and CSS. It&#x27;s quick, intuitive, and fun to watch.</p><p id="432f6610-465b-4ea6-842b-9edc62163e9c" class="">You should take a bit of notes and follow along with the lecture but keep in mind: this is for you to grasp HTML, not teach you how to immediately build websites (that&#x27;s the next step) 
+</p><figure id="27360326-5514-499d-8338-69b47c9eedee"><div class="source"><a href="https://youtu.be/XQs5KcUj-Do">https://youtu.be/XQs5KcUj-Do</a></div></figure><h2 id="38390807-a359-47ab-80fe-e7de0cb4386e" class="">Download a website template and a code editor</h2><p id="8ae7ba69-11dd-4b7c-ba2e-0dd026f57c42" class="">To be able to create real websites, I think the best way now that you grasp HTML &amp; CSS is to first open one for yourselves, play around, and <del>break it</del> customize it. </p><p id="45f1c760-593f-474a-8674-b44b3e228052" class="">A simple google search can lead to seemingly unlimited free HTML Website Templates that you can download for yourselves. I suggest <a href="https://mobirise.com/html-templates/">Mobirise</a>, <a href="https://nicepage.com/html-templates">NicePage</a>, and <a href="https://colorlib.com/wp/free-html-website-templates/">Colorlib</a> as a good place to start.</p><p id="7ff146dd-dd39-4868-95cf-5590196f9e73" class="">HTML and CSS are basically just funky English, so learning by reading template code is great to learn these languages.</p><p id="20578a04-23a8-4b1e-9fc0-1afec3787bee" class="">You can also use this as the start of your personal website (check out mines at <a href="http://sigilwen.ca">sigilwen.ca</a>)</p><figure id="eab96974-3ef9-4b04-ac41-e93dca38a162" class="image"><a href="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/3.png"><img style="width:1366px" src="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/3.png"/></a></figure><p id="76b7540d-c182-4222-a60c-6f95101fd11f" class="">Now that you have chosen a template you like, it&#x27;s time to open up the code and edit. You will need to download a code editor like <a href="https://code.visualstudio.com/download">Visual Studio Code</a> (🐐) or <a href="https://www.sublimetext.com/">Sublime Text 3</a>, all of which are free to use and cross-platform.</p><p id="70b40616-a321-4a12-84b6-03177d12ca58" class="">Boot up Visual Studio Code, open the folder for the website template and search for index.html - this is the HTML file for the homepage and usually where the magic happens.</p><p id="b6d9d44f-c087-4844-b9f6-5a4d56ca3b83" class="">It&#x27;s going to look pretty intimidating at first, but keep in mind that 80% of what&#x27;s on-screen isn&#x27;t relevant and through practice, you will get better at recognizing this.  </p><p id="babfb7f5-23e1-48f9-b451-fb3a9549822d" class="">Open up the HTML file in your browser side by side with your code editor. This will allow you to see how HTML turns into the website. Try and see what corresponds to what and how changing the wording and aspects of the code impacts the website (keep in mind undo exists) </p><p id="897c77dd-1c2a-4446-bc31-de3899e0ae9f" class="">Oh yeah, you need to save the code (ctrl + s) and refresh the browser to see changes or install the <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">live server extension</a> in Visual Studio Code.</p><figure id="00037512-e229-499f-9117-3782013e75a9" class="image"><a href="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/5.png"><img style="width:1366px" src="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/5.png"/></a></figure><p id="c3b32e24-2ca6-427d-a676-32ebf22f36f8" class="">You should be able to change all of the wordings, images (by changing image destination in folder), and pretty much everything to your own liking. This is the best way (imo) to learn HTML, CSS and starting to build websites. </p><p id="aa9aa464-00a6-46a0-ba40-dec23710a465" class="">If you run into any issues or don&#x27;t know how to do something, a quick google search will lead to more than enough answers. It&#x27;s going to be hard reading stack overflow but it&#x27;s another one of those things that come with experience :) </p><figure id="6c6ffa0f-e915-4db4-b4d3-c7595cbe4e4c" class="image"><a href="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/Untitled.png"><img style="width:1000px" src="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/Untitled.png"/></a></figure><p id="c13102c9-55c7-4911-8e33-abb0193b9e33" class="">I asked 2 of my friends to do this and they all were able to learn it within the timespan of an afternoon (check these out: <a href="https://impactwithoutcontact.ca/">https://impactwithoutcontact.ca/</a> and <a href="https://venkatmuthaly.com/">https://venkatmuthaly.com/</a> pog)</p><p id="7599120b-f478-455b-81fd-4b3f8e9d7671" class="">Now that you have a website made it&#x27;s time to put it on the internet (for free ofc!)</p><h2 id="f96634f7-c135-4d9f-8895-9417c9bffc49" class="">Upload your code to the internet and host it!</h2><p id="9d416e0e-b0d7-46a2-9b47-3664e50f7d6c" class="">To get your code onto the internet, you are going to have to download <a href="https://desktop.github.com/">Github Desktop</a> which is great for beginners.</p><p id="5a204211-0745-43f8-bb69-92e00c3aaa69" class="">It&#x27;s going to allow you to create a repository to store your code which will be accessible on Github (a platform where code is stored) </p><p id="8a40219b-e251-489c-a145-f45d293477df" class="">A good thing about GitHub is that they have a free service called Github Pages which allows you to host your HTML code as a website for free! Also comes with a free domain similar to <a href="http://sigil.github.io">sigil.github.io</a> </p><p id="ea044ba0-1c93-417b-95e9-1057eaa09dea" class="">To enable this, head into the settings of your now uploaded Github respository and enable github pages. Make sure to click on enforce HTTPS which allows for secure connections. </p><figure id="1dba7e4d-f9c2-41bf-b423-cfdb3b79a2a8" class="image"><a href="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/Untitled%201.png"><img style="width:1472px" src="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/Untitled%201.png"/></a></figure><p id="24538654-9196-47c7-b2bd-962a6f17ef1d" class="">Afterwards, you and all your friends should be able to access your website from the GitHub domain.</p><p id="0d20bf13-116d-417f-93b5-0114bac00fe2" class="">But if want your own epicly cool domain like <a href="http://sigilwen.ca">sigilwen.ca</a> or <a href="http://oneskillaweek.com">oneskillaweek.com</a> then you got to...</p><h2 id="3021e680-9154-45f7-97ea-7fd92332df54" class="">Extra: Connecting a Domain (like sigilwen.ca)</h2><p id="bee3f1eb-19cc-4186-9643-051fdcc30cde" class="">I was originally going to explain this myself but I found a resource that goes over connecting domains better than I can explain it (or maybe I am just lazy hehe).
+
+Basically you can purchase an available domain from a site like <a href="http://godaddy.com">GoDaddy </a>or <a href="http://namecheap.com">NameCheap </a>and connect it to GitHub Pages by changing the DNS which you can think of as the settings for the domain. </p><p id="7d1d8f8b-4270-44d1-9bcf-9d4947291951" class="">This <a href="https://hackernoon.com/how-to-set-up-godaddy-domain-with-github-pages-a9300366c7b">article </a>explains it well and has everything you need to set it up! Have fun :D </p><h2 id="7b3fbf20-3cc0-44e1-84ed-43bb474d176b" class="">Final Thoughts 😜</h2><p id="d216000e-4680-4e29-8168-6bc70711e0f1" class="">Along your web development way, you will also encounter JavaScript, which you don&#x27;t need to worry too much about as it is beyond the scope of this post (future post ;). </p><p id="06e09bfd-49c4-48d1-b930-5b7b290e907b" class="">I recently started contracting with startups to produce videos and create their websites so if you are interested in hiring my team&#x27;s experitse send an email to hello@sigil.digital :D Website up soon ;) </p><p id="c89d4cad-46d9-4689-9ed6-6215bd41413e" class="">You can also email sigil@oneskillaweek.com for any questions regarding this post/any feedback tho I highly recommend doing a quick google search before you ask 🙃 </p><h3 id="96372a2c-fb33-4690-984b-b1bd505f4105" class="">If you like my content and want more I would suggest:</h3><ul id="a34bd9e8-920b-415f-a820-4314bdb246e4" class="bulleted-list"><li>Say hi to me on <a href="https://twitter.com/WenSigil">twitter</a>, <a href="https://www.instagram.com/sigil.wen/">instagram</a>, or on <a href="http://sigilwen.ca/">sigilwen.ca</a> 👋</li></ul><ul id="cc9eb75b-e457-4996-b167-dadb3597a3f0" class="bulleted-list"><li>Subscribe to my <a href="https://www.youtube.com/channel/UC68dN9l5fEaefElL728K6bA">YouTube Channel </a>for valuable content like this 🔥 </li></ul><ul id="4de54605-c29c-41bd-a17c-1182de9f65b2" class="bulleted-list"><li>Apply to the <a href="https://www.facebook.com/groups/oneskillaweek">Private One Skill a Week Facebook Group</a> (building a community of cool people)</li></ul><ul id="be8da971-28ac-4bcb-8d4a-82e23670f9aa" class="bulleted-list"><li><a href="https://www.buymeacoffee.com/oneskillaweek">Buy me a book</a> ;) </li></ul><ul id="8d10223c-33ff-4993-b5e5-0b51f3d5b915" class="bulleted-list"><li>Join my <a href="https://www.subscribepage.com/a6j4h3">newsletter</a> </li></ul><ul id="3fcfeabd-e9a2-442c-ab3a-47aa2f5024b3" class="bulleted-list"><li>send takeaways to sigil@oneskillaweek.com :D </li></ul><p id="3f25f09d-d660-468b-a762-d59ab431fb1f" class="">Thanks for tuning! ILY guys 💖</p><figure id="4fca51ca-cd0e-42ff-b08e-8ca780ed148f" class="image"><a href="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/Untitled%202.png"><img style="width:1366px" src="Learn%20to%20code%20and%20deploy%20a%20website%20in%20an%20afternoon%200887b2f6bd7e47ca93d5557c3f27485c/Untitled%202.png"/></a></figure></div></article></body></html>
