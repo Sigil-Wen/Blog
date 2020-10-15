@@ -1,0 +1,674 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Antifragility and the Growth Mindset</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="136fe9ca-03c5-4b61-a696-a19ad3d638e8" class="page sans"><header><a href = "/"><img class="page-cover-image" src="Learning%20AP%20Calculus%20BC%20in%205%20days%2089f2dacceeb74e20be4e042fb22291a0/banner.png" style="object-position:center 50%"/></a><div class="page-header-icon undefined"><span class="icon">📈</span></div><h1 class="page-title"><strong>Antifragility and the Growth Mindset</strong></h1></header><div class="page-body"><blockquote id="6c6c6a54-3382-4bbb-8395-83d5b05b0cf9" class="">You need to be lucky to reach success. But success doesn’t have to be a lottery. Optimize your chances of success by optimizing your growth from failure. This begins with your <strong>mindset</strong>.</blockquote><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="6bdbe364-7158-48f5-8096-93bde3dc54e0"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Posted February 9th 2020, Updated October 14th 2020</strong></div></figure><p id="6fe86640-86ad-4981-8bc8-4e2cfc453bc4" class="">
+</p><p id="afc012ff-bc36-41f1-b4fe-7bbe48f140d8" class="">You likely have come across many quotes regarding <strong>Success</strong> and <strong>Failure</strong> that all share the same fundamental idea. Whether it is…</p><p id="c967d324-888f-4ad7-9eb6-687d818432f0" class="">
+</p><blockquote id="7ddb091d-dbd6-4c10-bf98-4fba85165be0" class="">Failure is the mother to Success</blockquote><p id="09dc48e5-e17b-470d-9505-e63ed4422e26" class="">
+</p><p id="7c9386b1-9d67-44c6-bf9a-d35bb5709df7" class="">or…</p><p id="7d3ed206-330c-4490-93cb-0713d968a72b" class="">
+</p><blockquote id="e7cd50ec-06f2-4606-83eb-e7479db9f17c" class="">The difference between success and failure is one more time</blockquote><p id="88e60c0a-385f-421e-be05-4eabd167a5da" class="">
+</p><div id="a86a5b67-bd39-4c1e-a4d7-943745af9c87" class="column-list"><div id="36559f38-b0a9-4a92-ac36-50d844f2485d" style="width:50%" class="column"><figure id="4a7418d2-df38-445d-a050-da9aacf8bc5e" class="image"><a href="Antifragility%20and%20the%20Growth%20Mindset%204a7418d2df38445da050da9aacf8bc5e/Untitled.png"><img style="width:928px" src="Antifragility%20and%20the%20Growth%20Mindset%204a7418d2df38445da050da9aacf8bc5e/Untitled.png"/></a></figure></div><div id="c3d3ea78-7f94-4ef7-a0f8-4e304a44e0d8" style="width:50%" class="column"><p id="58981312-e6c7-44b7-b889-6c44fdd3edd8" class="">These are life-changing ideas that are simple for everyone to grasp. It makes a lot of sense that if one keeps pursuing a goal, each further pursuit of such goal increases their chances to achieve success- or as Dory, the Pacific blue tang fish puts it simply:<strong> To reach success, “Just keep swimming”.</strong></p></div></div><p id="60150d0f-0b90-446c-acb1-e87c532d573f" class="">
+</p><p id="bdf8b1cb-dbcb-4405-bc03-4097ff89204b" class="">Unfortunately, knowing about an idea is far from <strong>actually implementing the wisdom into your life.</strong></p><p id="3e250a9a-841b-4b51-ace8-d546afd06518" class="">
+</p><p id="71b81457-d3cd-4283-873d-17b0b09feb59" class="">Oftentimes, people don’t understand or <strong>misinterpret</strong> how to approach achieving what they deem as success. One common thought after reading the quote is that <em>success comes with perseverance</em>True<strong>, </strong>not giving up is apart of the equation, but success more so relies on something just as simple to grasp: <strong>your mindset.</strong></p><h1 id="866b4d78-d5b5-456c-a24d-4ebb91eb59ca" class=""><strong>The Fixed Mindset</strong></h1><p id="86bc91d1-384c-437f-9191-97df7c178f0e" class="">
+</p><p id="5381c8ff-108c-4bc8-b9ae-f57e0eef7055" class="">This might sound familiar to you:<strong> </strong>You go headfirst into your next ambitious project super motivated to make progress. While working, excitement fills you as you remind yourself just how great this project is going to be. But what happens once you encounter a problem? How do you react once it seems like your pursuit of success is going to fail? Most people are inclined to give up in such a situation, but certain people are able to overcome and progress more from encountering mistakes.</p><p id="441ce828-7a7d-46f5-a5db-b1e795e77217" class="">
+</p><p id="6e39197a-6985-427d-9552-dbe7e825bfad" class="">Why? Let’s look back to the times you were easiest to influence. The good old days.</p><p id="d8fc26d9-8469-4ea4-8e23-7967b2218ee7" class="">
+</p><p id="da88d775-c2fa-4367-8e9b-54ada0571cd4" class="">Within school, we are<strong> assessed on our performance to not make mistakes</strong>. Often times, this builds up this idea that <strong>smart kids don’t make mistakes </strong>and thus <strong>mistakes are bad. </strong>Having gone through 10 years of grade school at 5 different institutions so far, I can verify that this is, in fact, the culture many schools foster. Students grow up <strong>fearing mistakes and viewing them as a sign of failure, </strong>cultivating what we call a<strong> fixed mindset</strong>.</p><p id="ca2e33ad-ed4a-499c-8876-896fd4b4beca" class="">
+</p><p id="bb6965f0-fbf5-4926-91e9-5acd2a966b3a" class="">This passage from <em>Mindset, New Psychology for Success</em> by Carol S. Dweck outlines the <strong>fixed mindset</strong> very well:</p><p id="5dd82fec-649b-4ae3-9e77-191e470356b1" class="">
+</p><blockquote id="c83cd903-091c-4fc9-b532-b6399c51024e" class="">A “fixed mindset” assumes that our character, intelligence, and creative ability are static givens which we can’t change in any meaningful way, and success is the affirmation of that inherent intelligence, an assessment of how those givens measure up against an equally fixed standard; striving for success and avoiding failure at all costs become a way of maintaining the sense of being smart or skilled.</blockquote><p id="425a0072-34c2-41a1-a26f-dc81c787db7f" class="">
+</p><p id="e9ba3203-f50a-417a-bc9f-f7f0a3a3c47f" class="">Essentially, in a fixed mindset environment, we believe that people are born with the talent that they have and it does not change throughout one&#x27;s life. This, however, leads to the formation of excuses and a culture that <strong>promotes meeting requirements over actual growth</strong>.</p><p id="4660c620-706b-4e5e-9454-3b85a2caddf0" class="">
+</p><p id="3f831f60-bfd4-4db4-8c3d-4e2c0f3332b7" class="">In school, individuals who consistently perform well continue to avoid failure at all costs to try their best to maintain the feeling of being smart- after all, being perfect leads to success, right? Meanwhile, those that underperform view themselves as inadequate and accept the fact that others are innately “smarter” or “skilled” than themselves and don’t challenge it, not realizing that nothing is <strong>innate</strong>, and <strong>everyone has the power to change themselves</strong>. Many grow up striving for success and avoiding failure at all costs. However, the truth is… <strong>failure is inevitable, but it is definitely not a bad thing, quite the opposite.</strong></p><p id="7a2a3281-29a9-4489-8536-86ddcb57638e" class="">
+</p><p id="b6986a59-25a0-4927-8a38-26c8ae379498" class="">To people who think with a<strong> fixed mindset, encountering failure demotivates them</strong>. For each new pursuit towards success, initially, your ambition brings an abundance of willpower. Powering through each instance of failure with willpower is incredibly hard and not sustainable. Through with every instance of failure, your motivation, alongside with willpower, drains, which is not sustainable for your limited willpower.</p><p id="a649cc18-dc23-45c2-89b2-816e70ebae58" class="">
+</p><p id="35fcf876-9f3e-479d-87e4-fd61ac1ac5c3" class="">A common misconception is that willpower is a skill that is innate to those who have it. Thinking like this leads to excuses for not being born with willpower. <strong>Willpower is not a skill, it is a muscle.</strong></p><p id="6392c5df-3c24-48e4-aeac-867d0f2f0379" class="">
+</p><p id="ab6b267c-5391-4a57-a7f8-2641156e9b27" class="">Like a muscle, our willpower can only handle a limited amount of mind-taxing tasks before we run out, but over time, it can recover. With proper training, we can exercise our willpower muscle to build up the total capacity of mind taxing tasks we can handle. If someone with a fixed mindset tries to lift up too much or faces failure, because of how we have been conditioned towards failure, our willpower muscles get injured, hindering our ability to take on willpower intensive tasks.</p><p id="adc11c57-78f8-46ae-b3e5-eeaf6099583f" class="">
+</p><p id="d7a26ef4-71ad-46bc-b73c-824d11016b4d" class="">After failing, having a fixed mindset leads to demotivation which can affect other aspects of your life. This happened to me- my bad performance in school made me feel horrible and doubt the feasibility of achieving my goals at a top tier university. It impacted my relationships, health, mental health, and even further performances. Just from a single instance of failure, it took over a month to recover and get back on the ball. Just from a single instance of failure, I let it degrade my life for weeks. Unfortunately, for the billions of people with fixed mindsets, this is their way of coping with failure. </p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0cf3d662-003b-4f82-980a-194aa775702b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">But It didn’t have to be this way...</div></figure><h1 id="4bc94e2a-3edd-4537-8916-6ad3efaef54d" class="">The g<strong>rowth mindset</strong></h1><p id="df93c288-cccd-43e7-ab18-963b4a0af7de" class="">
+</p><p id="20e2bfd8-e8fe-4372-b20b-3d6b0122f9c7" class="">The opposite of a fixed mindset is a <strong>growth mindset</strong>. Dweck perfectly explains and compares it to the fixed mindset in the following passages:</p><p id="9f70b2ab-e007-473d-8719-3ab93d166042" class="">
+</p><blockquote id="a5a36eba-746c-4fe6-8849-2047a364c6ed" class="">A “growth mindset,” thrives on challenge and sees failure not as evidence of unintelligence but as a heartening springboard for growth and for stretching our existing abilities… </blockquote><blockquote id="f2352ba7-e061-4cce-837c-08f7b60a52cf" class="">Although people may differ in every which way — in their initial talents and aptitudes, interests, or temperaments — everyone can change and grow through application and experience… <strong>it creates a passion for learning rather than a hunger for approval.</strong></blockquote><blockquote id="4499028a-2c44-4ebd-8cfe-dff314f26c6d" class="">This growth mindset is based on the belief that your basic qualities are things you can cultivate through your efforts. Not only are people with this mindset not discouraged by failure, but they don’t actually see themselves as failing in those situations — they see themselves as learning. This is the mindset that allows people to thrive during some of the most challenging times in their lives.</blockquote><blockquote id="c04a73a4-8db1-4f27-83a8-73b530a6ec88" class="">When you enter a mindset, you enter a new world. In one world — the world of fixed traits — success is about proving you’re smart or talented. Validating yourself. In the other — the world of changing qualities — it’s about stretching yourself to learn something new.<strong> Developing yourself.</strong></blockquote><blockquote id="79eeff6d-efa3-4ef8-aaf6-3e00f402d209" class="">In one world, failure is about having a setback. Getting a bad grade. Losing a tournament. Getting fired. Getting rejected. It means you’re not smart or talented. In the other world, failure is about not growing. Not reaching for the things you value. It means you’re not fulfilling your potential. In one world, effort is a bad thing. It, like failure, means you’re not smart or talented. If you were, you wouldn’t need effort. In the other world, effort is what makes you smart or talented.</blockquote><p id="4949c597-2dd4-46a1-ab8b-e1f41d1decc8" class="">
+</p><p id="11b6cb14-bd6a-4375-93be-48b03ab7c897" class="">Wow… this is a lot to process.</p><p id="6e7b56a1-67b7-4567-9527-e2e771a5eb07" class="">
+</p><p id="fcb14822-b420-40d9-a507-ba2c1459971a" class="">The first time I came across this idea, I went through a paradigm shift- a complete change in perspective of my life and the world. But similar to any wisdom, the ideas are simple to understand but to actually go from a <strong>fixed mindset to a growth mindset?</strong></p><p id="0256f4f5-8a1b-4b35-97b9-63663e0c20df" class="">
+</p><p id="74ced5a5-4623-4e3b-8d60-8e67c6e54993" class="">Once again, let’s look back to the times you were easiest to influence. The good old days. This time, we break down how we can cultivate a growth mindset.</p><h1 id="984ae778-4b41-4cfb-8616-8dcf838ff466" class=""><strong>Antifragility, the key to a maximizing Growth</strong></h1><p id="855417da-5284-4730-985b-aac5fa5ea53c" class="">Those with fixed mindsets are damaged when encountering failure. Those with growth mindsets grow when encountering failure. Fixed mindsets stem from environments where failure is “bad”, making us fragile against failure. Growth mindsets stem from environments that <strong>promote failure</strong>, making us “anti-fragile” against failure.</p><p id="772383c0-1f79-4ca8-aec5-3874289bf0a1" class="">
+</p><p id="0344f87c-29f6-4682-a3e1-df0ae30de6e3" class="">Over the last 4 months, I have been an innovator at <a href="https://theksociety.com/"><strong>The Knowledge Society</strong></a>, the world’s leading innovation program and Human Accelerator. I consider myself ambitious for a 16-year-old high school student and in the past, I have been involved with a lot of competitive programs ranging from<a href="https://launchx.com/"> LaunchX</a> and<a href="https://deca.ca/"> DECA</a> to <a href="https://www.jacanada.org/">Junior Achievement</a> and <a href="http://www.topsprogram.ca/">TOPS</a>. But there is nothing quite similar to <strong>TKS</strong>.</p><p id="0520ad69-ee9d-48d2-b0d9-522eb57c3888" class="">
+</p><p id="7f64ea56-2634-4681-bc45-8fe84f0a3398" class="">Why?</p><p id="0967ba97-3254-4e35-8df4-d7ae88489ea3" class="">
+</p><p id="9e9cf3c3-377d-402a-ae83-2af40483f854" class="">Rarely are there environments designed for you to fail openly and receive tough feedback. Oftentimes we spend our efforts avoiding failure at all costs as we are assessed on our ability to <strong>not fail</strong>.</p><p id="171c730d-b40c-4b26-928a-44da4f9563b3" class="">
+</p><p id="207353be-e2a9-499b-95e6-81c6ba2dfb4b" class="">Yet this <strong>inhibits growth, creates insecurities,</strong> and an environment where people <strong>can’t show vulnerability. </strong>This makes us<strong> fragile to criticism</strong> and fosters fixed mindsets.</p><p id="c3224bf0-4397-45c7-b9b9-04da2572b008" class="">
+</p><p id="bc0b8dee-cb7f-4cdc-9f9e-0ff38b59bb19" class="">Within TKS, it is quite the opposite. It is an environment that builds <strong>antifragility</strong>, the opposite of fragility. We are heavily encouraged to<strong> fail</strong>, and get <em>roasted</em> (more like receiving critical feedback) by our Directors Navid and Nadeem, as well as our peers. Initially, we all come in with fixed mindsets developed from our limited life experiences and take brutal feedback personally- “oh Navid hates me because he is criticizing my perfect public speaking that won be 1st place at DECA ICDC.” But imagine, it’s not just you failing, but everyone within the room. From the start of the program, the environment is set to embrace failure- an Olympic level training ground for the next generation problem solvers is a good way to put it.</p><p id="b2cf53fb-2191-42f7-9338-ff4387fa93f4" class="">
+</p><p id="c070091e-7c06-4a1d-b1af-1a97aa726a36" class="">Giving honest feedback with no sugar coating is incredibly underrated in today’s world as people are too fragile and we fear to hurt other people&#x27;s emotions over honest beneficial critique as we want to be “nice”. Within TKS, many of my peers CRAVE feedback and love to fail- after trying their best of course.</p><p id="fb160674-2a7a-473d-8f59-73daad21c723" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="488e84a0-f4dd-4a8e-bc67-8421548518e0"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Failure is not to be feared. It is from failure that most growth comes. -Dee Hock</div></figure><p id="47f397cd-fe58-4cca-a8b9-904e6a8b53a3" class="">
+</p><p id="4d0620ce-6ab1-4f99-be6d-eb486781a9c6" class="">Think about Olympic athletes like Runner Usain Bolt or Gymnast Simone Biles. Think about the smartest people we love to look up to like <strong>Elon</strong>(gated) <strong>Musk</strong>(rat) and Genius Albert Einstein. We often are led to believe that these so-called “prodigies” are born geniuses or athletes, yet this is simply an excuse for those with fixed mindsets.</p><p id="9c8638fb-f08c-4c4c-b882-937d77830061" class="">
+</p><p id="26bc55cb-0499-487e-b221-9819d1df7f95" class="">It’s easy believing that success is innate to one, as you have an easy excuse as to why you can’t reach their level and shouldn’t bother trying.</p><p id="d8834d80-4054-4f87-8720-05d69df5f5cf" class="">
+</p><blockquote id="ba834e2c-b33d-4733-a4e5-103de0553e6c" class="">“I can’t do that, who do you think I am? Albert Einstein?” -me_irl</blockquote><p id="17feb393-9891-4c4a-9933-db762dd599d0" class="">
+</p><p id="87862e6d-b674-4704-b567-362bf061feeb" class="">Yet at one point in time, we were all at a similar stage. What you don’t see about these “prodigies” are the amounts of times Elon failed, Simone Biles bellyflopped, SpaceX’s rockets blew up, or the fact that Albert Einstein was rejected by academia. Because they exhibited growth mindsets, they were able to overcome their failures and use it as vital learning points within their lives to reach the legacy that they have built today.</p><p id="4b0cc0a3-3ff9-4fef-bb8e-8dbf24b6c99d" class="">
+</p><p id="2110b959-c87c-4ba7-a0de-5297b215f820" class="">Essentially, by embracing failure and feedback, the <em>students (we call them innovators) </em>within the program shift from fixed mindsets towards <strong>growth mindsets.</strong></p><p id="8c259915-658c-41e4-9619-468b6e17fb14" class="">
+</p><p id="e826d129-b359-45ca-8946-64ed6a6d3278" class="">Building antifragility is key to a growth mindset. And that starts with setting an environment that promotes failure.</p><p id="2fc2269d-0233-40be-86b2-492d070cdb4b" class="">
+</p><p id="1ad0ac53-1aa3-46e1-9e7a-c0ee68b80be4" class="">Not everyone has access to Olympic level training grounds like TKS with ideal growth environments.</p><p id="0b294bbd-4bb7-4fd3-92d1-e67b449a96aa" class="">
+</p><p id="1bc16b90-29f6-4fd6-9226-83b9ff4ea6f0" class="">If you are in school, ask your teacher’s afterward how you can 10X your current work- seek feedback from failure. At work, make it clear to your colleagues that you want un-sugarcoated criticism and won&#x27;t take it personally — this sets the environment right. What I am currently striving to master is the ability to show vulnerability with others while being able to convey that I can take any feedback.</p><p id="7027ea48-11c2-4b1e-b807-f9519ee304ef" class="">
+</p><p id="e95cd467-1bc3-42a5-8cec-cdfd596c867b" class="">Another component of building growth mindsets is to internalize <strong>perceived risk vs. actual risk.</strong> Often times, we view doing something with the potential of failing as having too much risk involved, fabricating fear- we have a tendency to do this. Yet once you begin rationalizing the situation, you understand that the <strong>actual risk is significantly less than the perceived risk</strong>.</p><p id="780edefc-2cb4-473e-8fc0-bb5ccaa9209d" class="">
+</p><p id="d2372637-96fd-4c05-9672-d9decacba5c3" class="">Let’s look at an example. Say you are a startup founder and you see Daniel Gross walking down the street. You likely start imagining a bunch of different situations that play out- you stumble in your elevator pitch, he thinks you are dumb, you fail. But if you really think about it, <strong>what do you have to lose?</strong> The actual risk is you pitch yourself, he walks away and you don’t gain lose anything. I’m sure this is relatable. Meanwhile, the potential benefit of the situation is that Daniel takes interest in your startup, invites you to a meeting, and becomes an investor.</p><p id="c06e1760-406d-41c2-b4be-e403b486f53e" class="">
+</p><p id="81dab28f-737c-445d-8182-26f85b98d43c" class="">We often let our emotions cloud our judgment of situations, making us FEAR “failure”. But in many cases, the <strong>potential benefit significantly outweighs the risk</strong> yet we overestimate the risk involved. Fixed mindset’s fear failure, and with that comes overthinking the risk involved- making you leave potential life-changing opportunities.</p><p id="cdaf7661-63c5-419b-b022-d41422aab62e" class="">
+</p><p id="4ebe2a6d-9375-40db-a09b-7d98d76d08b5" class="">Another reason why the TKS environment promotes growth mindsets is that we <strong>embrace discomfort. </strong>We are pushed to do things out of our comfort zone, which <strong>allows us to 10X our growth. </strong>Everything is scary at first, but after some practice, it becomes normal. Remember roller coasters? In the beginning, you likely were terrified. After a few goes, you eat 720 loops for breakfast. (Fun fact: I’m still scared of them and have Mini PTSD from a traumatic first experience. Going to conquer this tho)</p><p id="f84dca70-a45e-438d-bad6-be87f24d7451" class="">
+</p><p id="fcee0534-8992-4301-8aad-b6fa65dbc5b8" class="">Applying the same principle to pitching in front of investors, speaking at Websummit, or doing standup comedy, without trying it, you will always fear opportunities. Doing things outside your comfort zone is an integral aspect of developing growth mindsets.</p><p id="872a87d1-d702-4cdf-811a-2fba1be22f6a" class="">
+</p><p id="a1ae9e15-dec4-4837-97a9-1080d459912b" class="">I like this YouTube Channel called <a href="https://www.youtube.com/channel/UCvK4bOhULCpmLabd2pDMtnA">Yes Theory</a> which has the beautiful mantra of <em><strong>Seek Discomfort</strong></em>. Essentially, they do extreme “discomfort” challenges to push them outside their comfort zones and document their learnings. You can do this yourself. Are you afraid of contributing to meetings/class? Ask yourself why? What are you afraid of? Saying something dumb? Is there actually any risk of putting your hand to contribute to the discussion? Try applying this rationalization to other aspects of your life. You might quickly realize that the fears you built up through the fixed mindset just don&#x27;t make sense, and have been inhibiting your growth.</p><h2 id="f5fcd13e-167f-41e2-bf1b-7b0b2750392f" class=""><strong>Key Takeaways:</strong></h2><ul id="8dbb0ceb-90e5-48b8-8375-b55c0c13211e" class="bulleted-list"><li>Fixed mindsets fear failure, feedback, and are harmed by both.</li></ul><ul id="11f196b6-f578-416c-a4f1-92a4dcb7879c" class="bulleted-list"><li>Growth mindsets prosper after failure and love feedback</li></ul><ul id="bdd11b5c-566b-4ee8-9ba7-226842bb90fa" class="bulleted-list"><li>Wisdom is easy to understand, but hard to internalize</li></ul><ul id="715f0293-74f0-4108-afd6-01d41bff162c" class="bulleted-list"><li>Your perceived risk is much higher than your actual risk</li></ul><ul id="08866e67-2b90-458e-9750-e647fc27dee0" class="bulleted-list"><li>Building antifragility fosters growth mindsets</li></ul><h2 id="4523c00c-2ac3-4d71-a320-5d1b41714bc9" class=""><strong>Further Resources 👀</strong></h2><ul id="64bcf2f6-408d-4ba7-a180-4ada52a794cf" class="bulleted-list"><li><a href="https://fs.blog/2014/04/antifragile-a-definition/">Nassim Taleb: A Definition of Antifragile and its Implications</a></li></ul><ul id="9dcf4b09-3889-4db1-abc9-949336426951" class="bulleted-list"><li><a href="https://www.brainpickings.org/2014/01/29/carol-dweck-mindset/">Growth Mindset vs Fixed Mindset</a></li></ul><ul id="707c2bf8-81c2-4f2a-ac4b-6f0b86658947" class="bulleted-list"><li><a href="https://fs.blog/2019/03/active-mindset/">Active Mindset vs Passive Mindset</a></li></ul><ul id="3e0a73b6-0b74-4d56-a6e4-0721efddcb6e" class="bulleted-list"><li><a href="https://youtu.be/hiiEeMN7vbQ">Raising Our Kids To Have a Growth Mindset with Carol Dweck | Stanford Talks</a> (10min)</li></ul><ul id="278191f7-73e2-4190-8ba6-89ce4ccc6f2c" class="bulleted-list"><li><a href="https://youtu.be/M1CHPnZfFmU">Growth and Fixed Mindset Traits</a> (2min)</li></ul><ul id="e9ef55b3-7c96-4a7f-9644-063e3a2030e5" class="bulleted-list"><li><a href="https://youtu.be/qjBdcyueom8">Cultivating a Growth Mindset</a> (10min)</li></ul><blockquote id="b2e77478-0bc8-47ec-9c03-b1f73febd81d" class="">Those with “fixed” mentality stayed on the safe side, choosing the easier puzzles that would affirm their existing ability, articulating to the researchers their belief that smart kids don’t make mistakes; those with the “growth” mindset thought it an odd choice, to begin with, perplexed why anyone would want to do the same puzzle over and over if they aren’t learning anything new. In other words, the fixed-mindset kids wanted to make sure they succeeded in order to seem smart, whereas the growth-mindset ones wanted to stretch themselves, for their definition of success was about <em>becoming</em> smarter.</blockquote><blockquote id="412a64da-ab8b-4a45-b2a7-bc9bd3841787" class="">What she found was that those with a fixed mindset were only interested in hearing feedback that reflected directly on their present ability, but tuned out information that could help them learn and improve. They even showed no interest in hearing the right answer when they had gotten a question wrong, because they had already filed it away in the failure category. Those with a growth mindset, on the other hand, were keenly attentive to information that could help them expand their existing knowledge and skill, regardless of whether they’d gotten the question right or wrong — in other words, their priority was learning, not the binary trap of success and failure.</blockquote><blockquote id="a87e0cbe-6f5a-4b17-b748-08b33f2d2aa7" class="">Those with a fixed mindset believed their ideal mate would put them on a pedestal and make them feel perfect, like “the god of a one-person religion,” whereas those with the growth mindset preferred a partner who would recognize their faults and lovingly help improve them, someone who would encourage them to learn new things and became a better person. The fixed mindset, it turns out, is at the root of many of our most toxic cultural myths about “true love.”</blockquote><p id="3419c62a-864a-4d83-ad21-bdf17d4e9a0e" class="">
+</p><p id="1e2bcb4d-b10e-4215-9076-b8c1ae8e5f2b" class="">Hopefully this made you think.</p><p id="3b717451-9830-45ad-bade-5f8df9422022" class="">
+</p><p id="512e4a9a-77ea-498f-990f-8ad5429024b4" class="">-Sigil</p><p id="55e36db5-1073-43f5-867d-7bfaf60ad862" class="">
+</p><p id="00e57e16-01af-44e8-b361-5b32bdaa4c03" class=""><a href="http://oneskillaweek.com">&lt;&lt; </a><a href="http://oneskillaweek.com"><strong>Return Home </strong></a><a href="http://oneskillaweek.com">🏠</a></p></div></article></body></html>

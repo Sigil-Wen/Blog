@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>How to teach computers to see</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="93e45dd3-7121-4824-82f2-523de827ae86" class="page sans"><header><a href = "/"><img class="page-cover-image" src="Learning%20AP%20Calculus%20BC%20in%205%20days%2089f2dacceeb74e20be4e042fb22291a0/banner.png" style="object-position:center 50%"/></a><div class="page-header-icon undefined"><span class="icon">🤖</span></div><h1 class="page-title">Teaching computers to see</h1></header><div class="page-body"><blockquote id="94d1428a-b24e-4b7c-b90c-a437e03092b4" class="">Explaining and using Object Detection with YOLO(You Only Look Once) Computer Vision Algorithm</blockquote><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="fc90aefc-8a70-4da4-ae0e-2ab1cee61e4d"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Posted on November 2nd 2019, Revised on October 14th 2020</div></figure><p id="4cdbbc3b-5891-42c1-a3bc-436acc8e090d" class="">
+</p><figure id="da4cb008-52a6-48f8-959a-b451948099df"><div class="source"><iframe width="100%" height="56.25%" src="https://www.youtube.com/embed/AxhBu2uK86I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></figure><p id="c284df27-a983-4f62-97e7-a5bbcc18c2ad" class="">
+</p><p id="1c2cfe2f-33b3-4bd3-9913-715a9f11775a" class="">We all take our vision for granted. It is a product of hundreds of million years of evolution, evolving from a light-sensitive patch of cells to a complex optical extravaganza called the human eye.</p><p id="83470a17-e8d0-44ce-a485-98af6f9c3dc7" class="">
+</p><p id="5c06d8f8-f82f-4fa8-aaf7-2fdff21dd1c6" class="">Throughout Humanity’s course of existence, our survival has depended on our ability to understand and interpret our environment. During our time roaming the African plains, primitive humans needed to immediately recognize and react upon threats.</p><figure id="f2a1ca1b-85cd-4fe4-9432-cf174c2afb31" class="image"><a href="https://miro.medium.com/max/3840/1*FgahInknq1uYBcrU_4c1Xg.png"><img src="https://miro.medium.com/max/3840/1*FgahInknq1uYBcrU_4c1Xg.png"/></a></figure><p id="4dd2a53b-981a-49e3-a5cd-8043309531f9" class="">Even today, this still remains to be the case.</p><figure id="e3b4c421-d822-46a6-ae1e-ae03d25ec199" class="image"><a href="https://miro.medium.com/max/3840/1*nI5zi3bmlaXXRFlUAUAJcw.png"><img src="https://miro.medium.com/max/3840/1*nI5zi3bmlaXXRFlUAUAJcw.png"/></a></figure><p id="50587396-2e14-4f95-922a-34e04ec13296" class="">The ability to see the world we live in has allowed Christopher Columbus to navigate the world, Leonardo da Vinci to paint Mona Lisa and little Timmy here to ride a unicycle. Great job Timmy.</p><figure id="233a54cf-a70a-4d13-8ac3-2689cb6537df" class="image"><a href="https://miro.medium.com/max/3840/1*qrk3UZzPsqZld9dQAqQ2Og.png"><img src="https://miro.medium.com/max/3840/1*qrk3UZzPsqZld9dQAqQ2Og.png"/></a></figure><p id="5202f7ac-7ad6-4ba7-8b94-77ebfe3c4c44" class="">Since the emergence of Homo Sapiens, humans have had the best sense of sight. However, this won&#x27;t be the case for long. Because humans are very lazy. First Humans thought:</p><p id="256d8936-3c6d-4569-bcbd-5ad90e3b88da" class="">
+</p><blockquote id="f3538e32-ef4a-4b02-8cf6-1aef9faf7d01" class="">“Hey walking is tiring, let’s domesticate these big quadrupedal animals and ride them around instead.”</blockquote><figure id="96cf8a37-1a5b-446d-a689-2bc3e9d41623" class="image"><a href="https://miro.medium.com/max/3840/1*tyHGhgZdjZW1lgn2R7_yeQ.png"><img src="https://miro.medium.com/max/3840/1*tyHGhgZdjZW1lgn2R7_yeQ.png"/></a></figure><p id="3321cbc5-d30d-46f8-be45-d2bf17d7bdd0" class="">Then we thought:</p><p id="056536f8-2f08-48b3-b52f-a1e23fead703" class="">
+</p><blockquote id="6dd37b5e-cb23-4667-ae25-e893bba3952b" class="">“Hey feeding and maintaining these horses is too much effort, let’s build these big four wheel vehicles to move around in”</blockquote><figure id="eca2b27a-053a-4f90-ab0e-48496c66f77d" class="image"><a href="https://miro.medium.com/max/3840/1*sss3x8ouk3KYO9ja89vR7w.png"><img src="https://miro.medium.com/max/3840/1*sss3x8ouk3KYO9ja89vR7w.png"/></a></figure><p id="7c7a7a4e-6aa7-46c2-8a26-203faa721316" class="">And now we think:</p><p id="a48c6445-3591-456a-b683-161a5a03aa36" class="">
+</p><blockquote id="9bd9d222-4cc7-4d67-b1d9-637c21eed0ad" class="">“Hey driving these Cars is too much effort, let’s build complicated AI Algorithms to do that for us”</blockquote><figure id="66a4a89f-eae2-4851-a24c-5e00f618a57c" class="image"><a href="https://miro.medium.com/max/3840/1*FzjaPg62k1RbaAp7DteW_g.png"><img src="https://miro.medium.com/max/3840/1*FzjaPg62k1RbaAp7DteW_g.png"/></a></figure><p id="cfc26db0-9acd-45f8-a8f7-19162c3d5914" class="">And thus autonomous cars were created- born out of our laziness to even drive a car.</p><p id="403af668-9661-4209-b4bc-aa2fe5228c07" class="">
+</p><p id="9bc4b91e-8de3-4806-aede-bdcb011eff09" class=""><strong>But how exactly did we manage to create a car that could drive itself?</strong> Simply hooking up a computer with some cameras to a car isn’t enough, because computers don’t see images in the same way that we do. Take a look:</p><div id="7cfcd4cb-21f5-4d99-9a1e-a929d0de2ba5" class="column-list"><div id="4ac42d76-8539-450c-bb0c-29a69e715766" style="width:25%" class="column"><figure id="72d7d733-6bcd-4b72-bd4a-8deacf77afa3" class="image"><a href="https://miro.medium.com/max/440/0*X93HxqBzSoP1XCaQ.jpg"><img src="https://miro.medium.com/max/440/0*X93HxqBzSoP1XCaQ.jpg"/></a></figure></div><div id="8cd803a4-5555-4720-b824-b16bb9e98788" style="width:75%" class="column"><figure id="63aa7265-9aef-42f7-8fb4-d9abf4e7ee71" class="image"><a href="https://miro.medium.com/max/1408/0*T5As5vGkKeQ6HCaW.png"><img src="https://miro.medium.com/max/1408/0*T5As5vGkKeQ6HCaW.png"/></a></figure></div></div><p id="4ac00dd1-b4da-47d6-beb7-6d900365076d" class="">To us, we see elaborate shapes and edges that our <strong>big brain</strong>s can piece together to make up a face. But to a computer, they see an array of <strong>many</strong> <strong>many</strong> <strong>numbers</strong>.</p><p id="353f7782-cd67-4012-9163-8f13480b24d8" class="">
+</p><p id="736e3d71-daef-4a96-aab9-c59e44a3684f" class="">For so long, humans never knew how they could teach computers to see. Just think about it for a second:</p><p id="ce793d89-476d-4187-88b0-bb6ad98dfd05" class="">
+</p><blockquote id="bb7fb71d-4a79-44fd-bdd2-cbf22d2c3c17" class="">If you were given a grid full of numbers, what exactly would you do with it? How could you see through this?</blockquote><figure id="54266b9b-4c3c-4ebe-aea5-41369db39867" class="image"><a href="https://miro.medium.com/max/3840/1*CZmNt1Nw-tfrniZDrwE2cg.png"><img src="https://miro.medium.com/max/3840/1*CZmNt1Nw-tfrniZDrwE2cg.png"/></a></figure><p id="c4887705-e332-40d5-9ee2-d4f725a0fdda" class="">Not to mention, the picture of Abraham Lincon that I used above is in black in white. Normal colored images are in RGB (Red Green Blue) and have 3 separate color channels rather than 1, meaning that images are not just a 2 dimension array of numbers but a 3-dimensional array. How does a computer recognize patterns in these numbers to see objects? <strong>Simply having a bunch of if-else statements isn’t going to cut it this time.</strong></p><p id="76674e8a-a908-4c91-8ddb-d4df3361c782" class="">
+</p><p id="7d2f5672-1478-4f1f-8ee8-9aab10ffa961" class=""><strong>Enter Neural Networks.</strong></p><figure id="63052ee4-0459-4ed8-aab2-d78aa8d74230" class="image"><a href="https://miro.medium.com/max/3840/1*yr6FpCrvDQOkjKvOgQ5Ilw.png"><img src="https://miro.medium.com/max/3840/1*yr6FpCrvDQOkjKvOgQ5Ilw.png"/></a></figure><p id="17f11a82-84c1-40db-83f8-60aa33b6fd48" class="">Neural Networks are inspired by the way the human brain works, consisting of many layers of interconnected neurons that work together. After all, <strong>if our brain can learn to see, why cant an artificial brain do the same?</strong> Neural Networks allow computers to teach itself to recognize complex patterns necessary for the specific task it wishes to do. In this case, the goal is to teach a computer to see and understand the environment that it is in.</p><p id="d7f19623-fec9-4dfe-9cf5-010f6dfff16a" class="">
+</p><p id="a09dc9bd-ab9d-48a3-848c-50105ef37661" class="">The best way to teach a car to see is to use a special type of neural network called <strong>Convolutional Neural Networks</strong>.</p><figure id="d241c20e-b613-4248-8fd6-126be3ec53be" class="image"><a href="https://miro.medium.com/max/3840/1*oIDm45BTfqYF-VcE1vWmTA.png"><img src="https://miro.medium.com/max/3840/1*oIDm45BTfqYF-VcE1vWmTA.png"/></a></figure><p id="13267d86-1d15-4f22-a70f-9911001b7445" class=""><strong>Convolutional Neural Networks</strong> (<strong>CNNs</strong>) are used in Computer Vision because of their amazing ability to understand spacial information. This means if I had a picture of a human, even if I rotate it, move it around, squeeze and stretch it, the CNN would still recognize that it is a human.</p><p id="1e6f8e68-aad0-46f4-962d-13c9c885b9c0" class="">
+</p><p id="cf1f2c3e-cfcc-478d-8e9f-fb1051a34690" class="">The key behind the power of CNNs is that they use special layers called <strong>convolutional layers</strong> that extract features from the image. Initial Convolutional Layers recognize low-level features like edges and corners. As the features progress through more Convolutional Layers, the detected features become far higher in complexity. For example, the convolutional layers used to detect people may go from edges to shapes to limbs to people as a whole. You can read more about Convolutional Neural Networks in this <a href="https://towardsdatascience.com/classifying-skin-lesions-with-convolutional-neural-networks-fc1302c60d54"><strong>article</strong></a>.</p><p id="13dbfbfc-a926-419d-b7e3-f7e6130e3a84" class="">
+</p><p id="40d3ac48-4e31-4e52-a2e0-4b99b229e8a3" class="">The architecture of Convolutional Neural Networks</p><figure id="7b39808c-ee06-4378-9958-db545973a227" class="image"><a href="https://miro.medium.com/max/2340/1*y2dCQAi4KR7D_nLdVf9xcQ.gif"><img src="https://miro.medium.com/max/2340/1*y2dCQAi4KR7D_nLdVf9xcQ.gif"/></a></figure><figure id="e2d7b1b7-81f5-4ad8-86c2-26cc494d32b3" class="image"><a href="https://miro.medium.com/max/2510/0*w35fVhUL_MUsAZf5.jpeg"><img src="https://miro.medium.com/max/2510/0*w35fVhUL_MUsAZf5.jpeg"/></a></figure><p id="ee010272-7ed9-42fe-ad22-91111153ad28" class="">
+</p><p id="3c1ba409-cdd4-4fff-a40a-b812e07d01de" class="">Convolutional Neural Networks by themselves are mainly used in image classification: given an image, the network will accurately assign a given class. For example, using a CNN trained on a skin lesion dataset, it can then learn to diagnose different skin cancers from a given image.</p><p id="f6a91586-5699-47cf-8634-bf92f2829476" class="">
+</p><figure id="36427ecf-97fb-41d0-ac4f-2316e40d2aaf" class="image"><a href="https://miro.medium.com/max/3840/1*ULdFRyiWR-Ktnxaz1awBcQ.png"><img src="https://miro.medium.com/max/3840/1*ULdFRyiWR-Ktnxaz1awBcQ.png"/></a></figure><p id="72f12665-2569-47e5-a559-c352c7b81ad2" class="">
+</p><p id="01c9a6b9-9ed4-4f5e-9544-1004d3e33ef8" class="">But what If I wanted to know more than just if an image belongs to a class, more specifically, where exactly the object is <strong>located</strong>? Additionally, what if there are multiple objects within an image that are different classes? A self-driving car can’t just know that there are 5 cars and 20 people in the area, it needs to know where they are <strong>relative to itself in order to navigate safely</strong>.</p><p id="56d87bb8-4b84-40e1-b12d-e09b910f365b" class="">
+</p><figure id="5fdfee3c-2e3e-4fa5-bd8c-267242899f71" class="image"><a href="https://miro.medium.com/max/2200/0*7hj1o9-D8YO7opYn.jpg"><img src="https://miro.medium.com/max/2200/0*7hj1o9-D8YO7opYn.jpg"/></a></figure><p id="8ea57da6-09d3-4d5c-988f-552b34cede53" class="">
+</p><p id="cf339be0-7240-48a9-9906-6b5b994a9e25" class="">This is where <strong>object detection</strong> comes in. By spicing up our Convolutional Neural Network, we can repurpose its amazing classification properties to also locate where the classes are in the image. We can do so through an algorithm called <strong>YOLO (You Only Look Once)</strong> which can perform real-time object detection, perfect for autonomous vehicles. YOLO is incredibly fast, uses 24 convolutional layers, and can process up to 155 frames per second. This makes it easily implementable into a <strong>self-driving car</strong>. So how does it work?</p><h1 id="56281437-f1db-4d3b-a475-2b8e70748ed4" class=""><strong>#YOLO Explained</strong></h1><p id="47ff4d17-12e1-439e-ab2c-7dd9a429ffb5" class="">
+</p><p id="78e2a908-cbc9-4a4e-adae-5b2550c7bda3" class="">YOLO, as the research paper describes, has :</p><p id="fc9f411f-e509-43f3-884e-018dc88ee146" class="">
+</p><blockquote id="81cde955-eac4-40cc-9523-fe758bc231e2" class="">A single convolutional neural network simultaneously predicts multiple bounding boxes and class probabilities for those boxes</blockquote><p id="907a3aa8-882a-40bd-a329-61f86d62d733" class="">
+</p><p id="18f17e92-2397-49dc-aa6d-4eb666752d26" class="">YOLO uses features from the entire image to predict each bounding box and their classes which it does <strong>simultaneously</strong>. Similar to humans, YOLO can pretty much immediately recognize where and what objects are within a given image.</p><p id="dab5f502-1a1e-4e94-8a4a-c48accaf9b6d" class="">
+</p><p id="47f5ac5d-da94-4bad-90b7-69acc2844dc1" class="">When running on an image, YOLO first divides the image into an <strong>S by S</strong> grid.</p><figure id="b9284b9e-e60e-4fe4-ac24-7eb43e0b033e" class="image"><a href="https://miro.medium.com/max/1600/0*VaCtInm3Gb1dqmD-.jpeg"><img src="https://miro.medium.com/max/1600/0*VaCtInm3Gb1dqmD-.jpeg"/></a></figure><p id="a56aa6aa-5b7f-4321-8c8b-513ce5e2ab3a" class="">
+</p><p id="30ef6bf2-01e6-49a6-873e-7f6bdd8de4c6" class="">Within each grid cell, YOLO will predict the <strong>locations</strong>, <strong>sizes</strong>, and <strong>confidence scores</strong> of the predetermined number of <strong>bounding boxes </strong>essentially predicting the class and potential place where an object can be. If the center of an object falls into the grid cell, then the bounding boxes of that grid cell are responsible for accurately locating and predicting that object.</p><p id="b349458f-751d-4644-84d1-46f0811148ec" class="">
+</p><figure id="f80a2e32-72a7-46fe-8be3-1beed8824d99" class="image"><a href="https://miro.medium.com/max/1200/0*syNYsUjxx79mY5LT.jpg"><img src="https://miro.medium.com/max/1200/0*syNYsUjxx79mY5LT.jpg"/></a></figure><p id="626ca155-9b93-479e-9e00-dd288950a041" class="">YOLO bounding boxes in action</p><p id="08b9c56e-0a95-44d7-83ca-8ba7c6682d2a" class="">
+</p><p id="b2f64a97-c032-48d4-8eee-aa61ce8cee80" class="">Each bounding box will have 5 predictions: x coordinate, y coordinate, width, height, and <strong>confidence</strong>. The calculated <strong>confidence score</strong> indicates how confident the model thinks there is a class within the bounding box, and how accurate it thinks that class fits in the box which uses a metric called Intersection over Union.</p><p id="ffe7d860-28d0-477b-98d4-a866a6f99803" class="">
+</p><p id="5b5d4c34-7f72-47cd-bb51-58b5c3de0bc9" class=""><strong>Intersection over Union</strong> is used in object detection because it compares the ground truth bounding box with the predicted bounding box. By dividing the area of overlap with the area of the union, we have a function that <strong>rewards heavy overlapping</strong> and <strong>penalizes inaccurate bounding box predictions</strong>. The bounding box’s goal is to ultimately confine the object within the image as accurately as possible and IoU is a great metric for determining this.</p><figure id="2be7e4ca-c38a-473a-8d87-1f8168b8a2a4" class="image"><a href="https://miro.medium.com/max/1200/0*K9w7rubmQzybVeii.png"><img src="https://miro.medium.com/max/1200/0*K9w7rubmQzybVeii.png"/></a></figure><figure id="20c74cad-4fab-4afa-97b3-6e9e25192756" class="image"><a href="https://miro.medium.com/max/1200/0*qHiINbzTkNhc5Jt7.png"><img src="https://miro.medium.com/max/1200/0*qHiINbzTkNhc5Jt7.png"/></a></figure><p id="26c358b3-d741-4f06-b937-82e51a242e5d" class="">
+</p><p id="4dac5d9a-1bbb-4879-8e27-f1be74f66aa2" class="">After an image is run through YOLO, it outputs predictions in an S x S x (B * 5 + C) tensor where <strong>each grid cell predicts the location and confidence scores of B amount of bounding boxes across C amount of classes</strong>. Ultimately, we end up with a lot of bounding boxes- most of which are <strong>irrelevant</strong>.</p><p id="6f219537-ae0c-41c1-86c1-ff3ed1b9897d" class="">
+</p><p id="408d9266-3c28-467b-aeff-adfb3a3606aa" class="">To filter out the correct boxes, the bounding boxes with a predicted class that meets a certain confidence score will then be kept. This allows us to isolate all relevant objects within the image.</p><p id="795f9794-5a33-4a13-852c-7e5d5f2c4949" class="">
+</p><figure id="bb1a0afd-b75d-4e7e-87cd-534e2fb21782" class="image"><a href="https://miro.medium.com/max/1600/0*UJ7DiL9NAWt0QwyT"><img src="https://miro.medium.com/max/1600/0*UJ7DiL9NAWt0QwyT"/></a></figure><p id="d5919da0-7904-4b57-be12-e1b13be6f796" class="">
+</p><p id="7f6ae794-14d8-4128-947e-5abeec08c42d" class="">In essence, YOLO locates and classifies objects within an image/video. <strong>Object Detection </strong>algorithms like YOLO, combined with the many other sensors on a self-driving car like Li-Dar, allow us to build fully autonomous cars that can drive faster, safer, and better than any human can. If you are interested in diving deeper into self-driving cars, I highly recommend reading <a href="https://medium.com/@w.law/an-introduction-to-autonomous-vehicles-91d61ff81a40"><strong>this article</strong></a>.</p><p id="a67aec47-3043-4583-ba38-e5477b8a2ff1" class="">
+</p><p id="5c4100ff-1f2a-4e98-bda7-eb2b33af2360" class="">Now that you understand what YOLO does, <strong>let’s see it in action</strong>.</p><h1 id="754f7d16-d6e9-4c58-85d8-fc716dfcae8f" class=""><strong>Running YOLO</strong></h1><p id="031147d3-7db2-4a61-b16b-16ffcef27bc9" class="">To try out YOLO on your own computer, <strong>clone my GitHub repository to your computer.</strong></p><p id="ec3c4de5-cf5e-4b00-8508-bd74252184fc" class=""><a href="https://github.com/Sigil-Wen/YOLO">Sigil-Wen/YOLO</a><a href="https://github.com/Sigil-Wen/YOLO">Object Detection with YOLO (You Only Look Once). To run YOLO, first, download the pre-trained weights in the linked…</a><a href="https://github.com/Sigil-Wen/YOLO">github.com</a></p><p id="2b38b214-1b13-4022-b2dc-ad266760397f" class="">
+</p><p id="0c62ebca-b6ce-4a48-8758-c094d06ed32f" class="">Then download the pre-trained weights from this <a href="https://drive.google.com/file/d/1sbrSFwp4lAgVVDKijGf7hlIzcDbu7Eu_/view"><strong>link</strong></a><strong> </strong>and move the weights into the folder titled “<strong>yolo-coco</strong>”</p><p id="8657c668-e5a6-4c99-9460-f06c963726bb" class="">
+</p><figure id="3d15a46c-b7e6-4c58-8684-2a06a6faccc7" class="image"><a href="https://miro.medium.com/max/832/1*uVv12X1imfBuWINqkZ0WvA.png"><img src="https://miro.medium.com/max/832/1*uVv12X1imfBuWINqkZ0WvA.png"/></a></figure><p id="acbeec91-79fc-478f-b82c-d166911a430a" class="">
+</p><p id="b187d330-e6ca-4416-8216-c28ccf8b091b" class="">Within your command terminal, locate the cloned repository, import required dependencies and libraries, and enter the following command to run YOLO on <strong>any video</strong>.</p><p id="3b5cc810-d3d0-45d5-88f7-496a5c52384c" class="">
+</p><blockquote id="868bc263-6c53-48de-8248-c3bbc0af9c12" class="">python yolo_video.py — input &lt;INPUT PATH&gt; — output &lt;OUTPUT PATH&gt; — yolo yolo-coco</blockquote><p id="acc94d85-1043-40cf-99f7-0cdae24dd721" class="">
+</p><figure id="ce8ad54f-6fe3-4177-8a66-595fa31f8486" class="image"><a href="https://miro.medium.com/max/2056/1*UrGlAL-VwCPAnyxzvvs2AA.png"><img src="https://miro.medium.com/max/2056/1*UrGlAL-VwCPAnyxzvvs2AA.png"/></a></figure><p id="80080f8f-35d7-4ac9-b6d6-babe5399bce8" class="">
+</p><p id="d38fef50-8e50-4195-91d8-97bf5c300729" class="">After running the command, YOLO will run on the INPUT video and the final product will be found in the OUTPUT PATH. <strong>Here is something that I ran through YOLO</strong>:</p><p id="a5dfacad-a627-46fb-b1ed-9cbb0eb38ebb" class="">
+</p><figure id="2f94b264-1a11-4d40-9ec2-97791935ce43"><div class="source"><iframe width="100%" height="56.25%" src="https://www.youtube.com/embed/AxhBu2uK86I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></figure><p id="b41c7ce0-f9ba-4f8c-a8d0-02941c7e37a2" class="">
+</p><p id="bc99b030-8c7a-415b-b673-a4b9a73e3ef3" class="">There you go! You understood and ran an object detection algorithm! It’s incredible how close we are to a world dominated by AI drivers.</p><p id="feb6b5bc-8e80-4a59-a85d-b69a2ae5c097" class="">
+</p><p id="5121858a-e448-4b4d-ad31-737e3de2c0fd" class="">-Sigil </p><p id="aa0a603c-6321-4e25-8351-2c46a77487d5" class="">
+</p><p id="bfd8ef69-21b2-455a-a6e7-c131ad20cfd9" class="block-color-blue"><a href="http://oneskillaweek.com">&lt;&lt; </a><a href="http://oneskillaweek.com"><strong>Return Home </strong></a><a href="http://oneskillaweek.com">🏠</a></p><p id="e9d5ed5d-39e1-42cb-97d9-d417428db364" class="">
+</p></div></article></body></html>
